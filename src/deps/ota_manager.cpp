@@ -1,10 +1,11 @@
 #include <Arduino.h>
 #include <ArduinoOTA.h>
+#include "config.h"
 
 void setupOTA() {
   ArduinoOTA.setPort(3232);
-  ArduinoOTA.setHostname("ESP32_OTA_Test");
-  ArduinoOTA.setPassword("ota_password");
+  ArduinoOTA.setHostname("Espresso");
+  ArduinoOTA.setPassword(OTA_PASSWORD);
 
   ArduinoOTA.onStart([]() {
     String type = (ArduinoOTA.getCommand() == U_FLASH) ? "sketch" : "filesystem";
